@@ -34,6 +34,12 @@
                     Margin="0,20,0,0"
                     Click="Button1_Click"
                     ></Button>
+            <ScrollViewer Name="VeriListele" VerticalScrollBarVisibility="Auto"
+                      Width="200" Height="250">
+                <StackPanel Name="stackPanel">
+                    
+                </StackPanel>
+            </ScrollViewer>
 
         </StackPanel>
     </Grid>

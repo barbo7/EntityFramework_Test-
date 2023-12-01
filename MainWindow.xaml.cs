@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,13 @@ namespace WpfApp3
             using (var db = new DenemeContext())
             {
                 ////Veri Ekleme
-                //var customer = new Customer { CustomerName = "Test", CustomerId=1, CustomerPhone="5543123254"};
-                //db.Customers.Add(customer);
+                //for(int i=0;i<15;i++)
+                //{
+                //    var customer = new Customer { CustomerName = $"Test{i}", CustomerPhone = "5543123254" };
+                //    db.Customers.Add(customer);
+                //    customer.Orders.Add(new Order { OrderDate = DateTime.Now, ProductId = i, ProductName = $"Urun{i}" });
+                //}
+
                 //db.SaveChanges();
 
                 ////Relationlu veri Ekleme
@@ -48,6 +54,63 @@ namespace WpfApp3
                 //Customer customer  = db.Customers.Find(1);
                 //customer.CustomerName = "Bora";
                 //db.SaveChanges();
+
+                ////Veri Listeleme
+                //IQueryable<Customer> customers = (from a in db.Customers
+                //           //where a.CustomerName == "Bora" kod yapısı sql ile birebir aynı neredeyse ve 
+                //          select a); //burada birden fazla veri çekmek için select new ( a.CustomerName, a.CustomerPhone) yapısı kullanılır
+                //foreach (Customer item in customers)
+                //{
+                //    TextBlock textBlock = new TextBlock();
+                //    textBlock.Text = $"Veri {item.CustomerName}";
+                //    stackPanel.Children.Add(textBlock);
+                //}
+
+                ////Yukarıdaki kodun aynısı
+                //var result = from a in db.Customers
+                //             select a.CustomerName;
+                //foreach(var i in result)
+                //{
+                //    TextBlock textBlock = new TextBlock();
+                //    textBlock.Text = $"Veri {i}";
+                //    stackPanel.Children.Add(textBlock);
+                //}   
+
+                ////Groupby ile veri listeleme koşullu şekilde
+                //var result = from c in db.Customers
+                //             group c by c.CustomerName into g
+                //             where g.Key.StartsWith("B")
+                //             select  g;
+                //foreach(var i in result)
+                //{
+                //    TextBlock textBlock = new TextBlock();
+                //    textBlock.Text = $" {i.Key}";
+                //    stackPanel.Children.Add(textBlock);
+                //}
+
+                //Order by ile veri listeleme
+                //var result = from c in db.Customers
+                //             orderby c.CustomerName descending
+                //             select c;
+                //foreach (var i in result)
+                //{
+                //    TextBlock textBlock = new TextBlock();
+                //    textBlock.Text = $" {i.CustomerName}";
+                //    stackPanel.Children.Add(textBlock);
+                //}
+
+                ////Join ile veri listeleme
+                //var result = from c in db.Customers
+                //             join o in db.Orders on c.CustomerId equals o.customers.CustomerId
+                //             select new { c.CustomerName, o.ProductName };
+                //foreach (var i in result)
+                //{
+                //    TextBlock textBlock = new TextBlock();
+                //    textBlock.Text = $" {i.CustomerName} {i.ProductName}";
+                //    stackPanel.Children.Add(textBlock);
+                //}
+
+
 
 
             }
