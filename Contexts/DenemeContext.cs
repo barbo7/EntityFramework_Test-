@@ -10,6 +10,9 @@ namespace WpfApp3.Contexts
 {
     public class DenemeContext:DbContext
     {
+        public DenemeContext() : base("name = MyDbContext") // app.config'deki connection string'den veri alıyor.
+        {
+        }
         public DbSet<Customer> Customers { get; set; } 
         public DbSet<Order> Orders { get; set; }
 

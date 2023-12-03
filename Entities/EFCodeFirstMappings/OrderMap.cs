@@ -28,9 +28,9 @@ namespace WpfApp3.Entities.EFCodeFirstMappings
 
             this.ToTable("Orders");//Veritabanında Orders tablosu oluşturur.
             
-            this.HasOptional(o=> o.customers)//HasOptional() yazmazsak CustomerId alanı null olamaz.
-                .WithMany(o=>o.Orders)//Customer ile Order arasında 1-N ilişki var.
-                .HasForeignKey(f=>f.customers.CustomerId);//ForeignKey
+            //this.HasOptional(o=> o.customers)//HasOptional() yazmazsak CustomerId alanı null olamaz.
+            //    .WithMany(o=>o.Orders)//Customer ile Order arasında 1-N ilişki var.
+            //    .HasForeignKey(f=>f.customers.CustomerId);//ForeignKey
 
         }
     }
